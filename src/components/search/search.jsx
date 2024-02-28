@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiUrl, geoApiOptions } from "../../api";
 
-const Search = ({ onSearchChange }) => {
+const Search = memo(({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = async (inputValue) => {
@@ -37,6 +37,5 @@ const Search = ({ onSearchChange }) => {
       loadOptions={loadOptions}
     ></AsyncPaginate>
   );
-};
-
+});
 export default Search;
